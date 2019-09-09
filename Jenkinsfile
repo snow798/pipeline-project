@@ -16,7 +16,6 @@ pipeline {
                 sh 'npm -v'
                 sh 'npm config get registry'
                 sh 'npm install'
-                sh 'pwd'
             }
         }
         stage('Test') {
