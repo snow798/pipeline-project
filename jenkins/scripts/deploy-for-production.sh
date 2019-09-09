@@ -7,6 +7,7 @@ echo 'in production mode and optimizes the build for the best performance.'
 set -x
 npm run build
 set +x
+sh 'pwd'
 
 echo 'The following "npm" command downloads and installs the npm serve module'
 echo '(for serving static sites in production environments) to the local'
