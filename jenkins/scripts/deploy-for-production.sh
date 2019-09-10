@@ -18,9 +18,11 @@ set -x
 npm install serve
 set +x
 
+echo 'push code...'
 set -x
-scp $root@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
+scp -r $luo@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
 set +x
+echo 'push end'
 
 echo 'The following "serve" command runs the npm serve module (downloaded'
 echo 'above) deploys your Node.js/React application (built above in production'
