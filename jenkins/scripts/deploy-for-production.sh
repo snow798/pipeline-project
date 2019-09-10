@@ -1,38 +1,19 @@
 #!/usr/bin/env sh
 
-echo 'The following "npm" command builds your Node.js/React application for'
-echo 'production in the local "build" directory (i.e. within the appropriate'
-echo 'subdirectory of "/var/jenkins_home/workspace/"), correctly bundles React'
-echo 'in production mode and optimizes the build for the best performance.'
 set -x
 npm run build
 set +x
 
-echo 'The following "npm" command downloads and installs the npm serve module'
-echo '(for serving static sites in production environments) to the local'
-echo '"node_modules" directory (i.e. within the appropriate subdirectory of'
-echo '"/var/jenkins_home/workspace/"), which means that this module should not'
-echo 'need to be downloaded after this Pipeline''s initial run for a given'
-echo 'branch.'
 set -x
 npm install serve
 set +x
 
-echo 'push code...'
+echo 'push code... 77777777777777777777'
 set -x
 scp -r $luo@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
 set +x
 echo 'push end'
 
-echo 'The following "serve" command runs the npm serve module (downloaded'
-echo 'above) deploys your Node.js/React application (built above in production'
-echo 'mode) for production and makes the application available for web browsing.'
-echo 'The "serve" command has a trailing ampersand so that the command runs'
-echo 'as a background process (i.e. asynchronously). Otherwise, this command'
-echo 'can pause running builds of CI/CD applications indefinitely. "serve"'
-echo 'is followed by another command that retrieves the process ID (PID) value'
-echo 'of the previously run process (i.e. "serve") and writes this value to'
-echo 'the file ".pidfile".'
 set -x
 ./node_modules/serve/bin/serve.js -c 0 -s build &
 sleep 1
