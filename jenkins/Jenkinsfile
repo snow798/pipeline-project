@@ -25,6 +25,8 @@ pipeline {
             }
             steps {
                 sh './jenkins/scripts/deliver-for-development.sh'
+                input message: '尝试? (Click "Proceed" to continue)'
+                sh 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build @192.168.117.134:/home/luo/jenkins_res'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
