@@ -1,3 +1,15 @@
+!groovy
+def getHost(){
+    def remote = [:]
+    remote.name = 'mysql'
+    remote.host = '192.168.117.134'
+    remote.user = 'luo'
+    remote.port = 22
+    remote.password = 'luo'
+    remote.allowAnyHosts = true
+    return remote
+}
+
 pipeline {
   agent {
     docker {
