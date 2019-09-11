@@ -51,7 +51,8 @@ pipeline {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
           sh 'tar -cvf build.tar build'
-          sshPut remote: remote, from: 'build.tar', into: '.'
+          sshPut remote: remote, from: 'build.tar', into: './jenkins_res'
+          sshScript remote: remote, script: 'tar xvf ./jenkins_res/build.tar'
       }
     }
   }
