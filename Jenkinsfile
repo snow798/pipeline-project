@@ -50,8 +50,8 @@ pipeline {
       steps {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
-          writeFile file: 'abc.sh', text: 'ls -lrt'
-          sshPut remote: remote, from: 'abc.sh', into: '.'
+          sh 'tar -cvf build.tar build'
+          sshPut remote: remote, from: 'build.tar', into: '.'
       }
     }
   }
