@@ -1,14 +1,3 @@
-def getHost(){
-    def remote = [:]
-    remote.name = 'mysql'
-    remote.host = '192.168.117.134'
-    remote.user = 'luo'
-    remote.port = 22
-    remote.password = 'luo'
-    remote.allowAnyHosts = true
-    return remote
-}
-
 pipeline {
   agent {
     docker {
@@ -51,8 +40,16 @@ pipeline {
       }
     }
     stage('Send 9010 Test server...') {
+      def remote = [:]
+      remote.name = 'test'
+      remote.host = 'test.domain.com'
+      remote.user = 'root'
+      remote.password = 'password'
+      remote.allowAnyHosts = true
       steps {
-          sshCommand remote: remote, command: 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build luo@192.168.117.134:/home/luo/jenkins_res'
+          echo '444444444444'
+          writeFile file: 'abc.sh', text: 'ls -lrt'
+          sshPut remote: remote, from: 'abc.sh', into: '.'
       }
     }
   }
