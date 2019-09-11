@@ -20,12 +20,10 @@ pipeline {
         sh 'node -v'
         sh 'npm -v'
         sh 'npm config get registry'
+        sh 'npm install'
       }
     }
     stage('Test') {
-      when {
-        branch '4444'
-      }
       steps {
         sh './jenkins/scripts/test.sh'
       }
