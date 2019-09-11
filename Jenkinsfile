@@ -23,6 +23,9 @@ pipeline {
       }
     }
     stage('Test') {
+      when {
+        branch '4444'
+      }
       steps {
         sh './jenkins/scripts/test.sh'
       }
