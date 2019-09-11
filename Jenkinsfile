@@ -33,6 +33,10 @@ pipeline {
             }
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
+            }
+        }
+        stage('Send 9010 Test server...') {
+            steps {
                 sh 'ssh luo@192.168.117.134'
                 sh 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build luo@192.168.117.134:/home/luo/jenkins_res'
             }
