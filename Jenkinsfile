@@ -37,9 +37,9 @@ pipeline {
         input 'Finished using the web site? (Click "Proceed" to continue)'
       }
     }
-    stage('Deploy for production 67') {
+    stage('Deploy for production') {
       when {
-        branch '67'
+        branch 'production'
       }
       steps {
         sh './jenkins/scripts/deploy-for-production.sh'
@@ -48,7 +48,8 @@ pipeline {
     }
     stage('Send 9010 Test server...') {
       steps {
-          echo '444444444444'
+          echo 'start Send 9010_Test_server...'
+          sh 'ls'
           writeFile file: 'abc.sh', text: 'ls -lrt'
           sshPut remote: remote, from: 'abc.sh', into: '.'
       }
