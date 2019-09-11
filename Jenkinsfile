@@ -20,7 +20,6 @@ pipeline {
         sh 'node -v'
         sh 'npm -v'
         sh 'npm config get registry'
-        sh 'npm install'
       }
     }
     stage('Test') {
