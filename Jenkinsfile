@@ -1,3 +1,10 @@
+def remote = [:]
+remote.name = 'test'
+remote.host = 'test.domain.com'
+remote.user = 'root'
+remote.password = 'password'
+remote.allowAnyHosts = true
+
 pipeline {
   agent {
     docker {
@@ -40,12 +47,6 @@ pipeline {
       }
     }
     stage('Send 9010 Test server...') {
-      def remote = [:]
-      remote.name = 'test'
-      remote.host = 'test.domain.com'
-      remote.user = 'root'
-      remote.password = 'password'
-      remote.allowAnyHosts = true
       steps {
           echo '444444444444'
           writeFile file: 'abc.sh', text: 'ls -lrt'
