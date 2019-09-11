@@ -10,7 +10,8 @@ set +x
 
 echo 'push code... 77777777777777777777 prod'
 set -x
-scp -r $luo@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
+ssh luo@192.168.117.134
+scp -r luo@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
 set +x
 echo 'push end'
 
