@@ -1,4 +1,3 @@
-!groovy
 def getHost(){
     def remote = [:]
     remote.name = 'mysql'
