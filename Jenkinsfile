@@ -1,3 +1,4 @@
+der app_server_name = 'app1'
 def remote = [:]
 remote.name = 'test'
 remote.host = '192.168.117.134'
@@ -51,9 +52,9 @@ pipeline {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
           sh 'tar -cvf build.tar build'
-          sshPut remote: remote, from: 'build.tar', into: 'jenkins_res/app1'
+          sshPut remote: remote, from: 'build.tar', into: 'jenkins_res/${app_server_name}'
           echo '远程主机...'
-          sshCommand remote: remote, command: "tar xvf jenkins_res/app1/build.tar"
+          sshCommand remote: remote, command: "tar xvf jenkins_res/${app_server_name}/build.tar jenkins_res/${app_server_name}/"
       }
     }
   }
