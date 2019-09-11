@@ -52,7 +52,7 @@ pipeline {
     }
     stage('Send 9010 Test server...') {
       steps {
-        sshCommand(command: 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build luo@192.168.117.134:/home/luo/jenkins_res', sudo: true)
+          sshCommand remote: remote, command: 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build luo@192.168.117.134:/home/luo/jenkins_res'
       }
     }
   }
