@@ -54,7 +54,7 @@ pipeline {
           sshPut remote: remote, from: 'build.tar', into: 'jenkins_res'
           echo '远程主机...'
           sshScript remote: remote, script: 'ls'
-          sshScript remote: remote, script: 'tar xvf /jenkins_res/build.tar'
+          sshScript remote: remote, script: 'tar xvf jenkins_res/build.tar'
       }
     }
   }
