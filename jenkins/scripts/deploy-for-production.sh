@@ -8,9 +8,9 @@ set -x
 npm install serve
 set +x
 
-echo 'push code... 77777777777777777777'
+echo 'push code... 77777777777777777777 prod'
 set -x
-scp -r /var/jenkins_data/workspace/pipeline-project_production/build @192.168.117.134:/home/luo/jenkins_res
+scp -r $luo@192.168.117.134:/var/jenkins_data/workspace/pipeline-project_production/build/ /home/luo/jenkins_res/
 set +x
 echo 'push end'
 
