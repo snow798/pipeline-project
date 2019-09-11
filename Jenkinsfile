@@ -32,9 +32,9 @@ pipeline {
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
             }
         }
-        stage('Deploy for production') {
+        stage('Deploy for production 67') {
             when {
-                branch 'production'
+                branch '67'
             }
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
