@@ -1,4 +1,4 @@
-der app_server_name = 'app1'
+def app_server_name = 'app1'
 def remote = [:]
 remote.name = 'test'
 remote.host = '192.168.117.134'
