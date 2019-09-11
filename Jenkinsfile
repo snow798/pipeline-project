@@ -52,7 +52,7 @@ pipeline {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
           sh 'tar -cvf app1.tar build'
-          sshPut remote: remote, from: '${app_server_name}.tar', into: 'jenkins_res/${app_server_name}'
+          sshPut remote: remote, from: 'app1.tar', into: 'jenkins_res/${app_server_name}'
           echo '远程主机...'
           sshCommand remote: remote, command: "tar xvf jenkins_res/${app_server_name}/${app_server_name}.tar -C jenkins_res/${app_server_name}"
           sshCommand remote: remote, command: "ln -s ./jenkins_res/${app_server_name}/${app_server_name} /usr/share/nginx/${app_server_name}"
