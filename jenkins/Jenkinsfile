@@ -33,8 +33,8 @@ pipeline {
             }
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
-                input message: '尝试? (Click "Proceed" to continue)'
-                sh 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build @192.168.117.134:/home/luo/jenkins_res'
+                sh 'ssh luo@192.168.117.134'
+                sh 'scp -r /var/jenkins_data/workspace/pipeline-project_production/build luo@192.168.117.134:/home/luo/jenkins_res'
             }
         }
     }
