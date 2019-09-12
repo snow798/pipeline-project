@@ -55,7 +55,7 @@ pipeline {
           sshPut remote: remote, from: "app1.tar", into: "jenkins_res/app1/"
           echo '远程主机...'
           sshCommand remote: remote, command: "tar xvf jenkins_res/${APP_NAME}/${APP_NAME}.tar -C jenkins_res/${APP_NAME}/"
-          sshCommand remote: remote, command: "ln -s ./jenkins_res/${APP_NAME}/${APP_NAME} /usr/share/nginx/${APP_NAME}"
+          sshCommand remote: remote, command: "ln -s -f ./jenkins_res/${APP_NAME}/${APP_NAME} /usr/share/nginx/${APP_NAME}"
         
       }
     }
