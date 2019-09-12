@@ -1,4 +1,4 @@
-def app_server_name = 'app1'
+def APP_NAME = 'app1'
 def remote = [:]
 remote.name = 'test'
 remote.host = '192.168.117.134'
@@ -51,11 +51,11 @@ pipeline {
       steps {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
-          sh 'tar -cvf app1.tar build'
-          sshPut remote: remote, from: 'app1.tar', into: 'jenkins_res/${app_server_name}'
+          sh 'tar -cvf ${APP_NAME}.tar build'
+          sshPut remote: remote, from: '${APP_NAME}.tar', into: 'jenkins_res/${APP_NAME}/'
           echo '远程主机...'
-          sshCommand remote: remote, command: "tar xvf jenkins_res/${app_server_name}/${app_server_name}.tar -C jenkins_res/${app_server_name}"
-          sshCommand remote: remote, command: "ln -s ./jenkins_res/${app_server_name}/${app_server_name} /usr/share/nginx/${app_server_name}"
+          sshCommand remote: remote, command: "tar xvf jenkins_res/${APP_NAME}/${APP_NAME}.tar -C jenkins_res/${APP_NAME}/"
+          sshCommand remote: remote, command: "ln -s ./jenkins_res/${APP_NAME}/${APP_NAME} /usr/share/nginx/${APP_NAME}"
         
       }
     }
