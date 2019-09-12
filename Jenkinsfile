@@ -51,7 +51,7 @@ pipeline {
       steps {
           echo 'start Send 9010_Test_server...'
           sh 'ls'
-          sh 'tar -cvf app1.tar build'
+          sh 'tar -cvf ${APP_NAME}.tar build'
           sshPut remote: remote, from: "${APP_NAME}.tar", into: "jenkins_res/${APP_NAME}/"
           echo '远程主机...'
           sshCommand remote: remote, command: "tar xvf jenkins_res/${APP_NAME}/${APP_NAME}.tar -C jenkins_res/${APP_NAME}/"
