@@ -54,6 +54,7 @@ pipeline {
           sh 'tar -cvf build.tar build'
           sshPut remote: remote, from: "build.tar", into: "jenkins_res/${APP_NAME}"
           echo '远程主机...'
+          sshCommand remote: remote, command: "rm -rf jenkins_res/${APP_NAME}/*"
           sshCommand remote: remote, command: "tar xvf jenkins_res/${APP_NAME}/build.tar -C jenkins_res/${APP_NAME}/"
           sshCommand remote: remote, command: "cp -a -f ./jenkins_res/${APP_NAME} /usr/share/nginx/${APP_NAME}"
           sshCommand remote: remote, command: "nginx -s reload"
